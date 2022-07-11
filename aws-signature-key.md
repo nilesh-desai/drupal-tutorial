@@ -17,7 +17,9 @@ use Symfony\Component\Serializer;
 
 ## Add below code which will generate AWS signature key.
 
-```$bodyData = Serializer::encode($bodyParams, 'json');
+```
+// $bodyParams should an array of data.
+$bodyData = Serializer::encode($bodyParams, 'json');
 $options = [];
 $header = [
   'Content-Type' => 'application/json',
