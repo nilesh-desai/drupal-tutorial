@@ -9,7 +9,7 @@ Add some classes which we are going to use.
 ```use Aws\Credentials\Credentials;
 use Aws\Signature\SignatureV4;
 use GuzzleHttp\Psr7\Uri;
-use Symfony\Component\Serializer;```
+use Symfony\Component\Serializer; ```
 
 
 Add below code which will generate AWS signature key.
