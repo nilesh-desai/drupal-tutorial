@@ -1,18 +1,21 @@
-Add AWS SDK PHP library using composer.
+# Add AWS SDK PHP library using composer.
 
 ```composer require  "aws/aws-sdk-php"```
 
 We can create a custom service or helper class to generate AWS signature key.
 
 
-Add some classes which we are going to use.
+## Add some classes which we are going to use.
+
 ```use Aws\Credentials\Credentials;
 use Aws\Signature\SignatureV4;
+use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Uri;
-use Symfony\Component\Serializer; ```
+use Symfony\Component\Serializer;
+```
 
 
-Add below code which will generate AWS signature key.
+## Add below code which will generate AWS signature key.
 
 ```$bodyData = Serializer::encode($bodyParams, 'json');
 $options = [];
@@ -39,8 +42,10 @@ $signatureRequest = $signature->signRequest(
   $credentials,
 );
 
-$request = $this->httpClient->send($signatureRequest);
-$response = $request->getBody()->getContents();```
+$httpClient = new Client();
+$request = $httpClient->send($signatureRequest);
+$response = $request->getBody()->getContents();
+```
 
 
 
